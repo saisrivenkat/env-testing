@@ -3,8 +3,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home({ ame }) {
-  const api = process.env.SRI
-  console.log(api);
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +13,7 @@ export default function Home({ ame }) {
       </Head>
 
       <main className={styles.main}>
-        <h1>{api}</h1>
+        <h1>{ame}</h1>
         <h1 className={styles.title}>
 
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -75,7 +73,6 @@ export default function Home({ ame }) {
 };
 
 export const getServerSideProps = async () => {
-  const api = process.env.SRI;
   return {
     props: {
       ame: process.env.SRI,
