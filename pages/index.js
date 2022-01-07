@@ -69,4 +69,13 @@ export default function Home() {
       </footer>
     </div>
   )
+};
+
+export const getServerSideProps = async () => {
+  console.log(process.env.SRI);
+  return {
+    props: {
+      articles: "SRI",
+    },
+  }
 }
