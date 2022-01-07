@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
-  const api = procee.env.SRI
+  const api = process.env.SRI
   console.log(api);
   return (
     <div className={styles.container}>
