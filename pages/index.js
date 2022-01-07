@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ name }) {
+export default function Home({ ame }) {
   const api = process.env.SRI
   console.log(api);
   return (
@@ -15,7 +15,7 @@ export default function Home({ name }) {
       </Head>
 
       <main className={styles.main}>
-        <h1>{name}</h1>
+        <h1>{ame}</h1>
         <h1 className={styles.title}>
 
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -78,7 +78,7 @@ export const getServerSideProps = async () => {
   const name = process.env.SRI;
   return {
     props: {
-      name,
+      ame: "name",
     },
   }
 }
