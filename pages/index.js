@@ -15,7 +15,7 @@ export default function Home({ ame }) {
       </Head>
 
       <main className={styles.main}>
-        <h1>{ame}</h1>
+        <h1>{api}</h1>
         <h1 className={styles.title}>
 
           Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -75,10 +75,10 @@ export default function Home({ ame }) {
 };
 
 export const getServerSideProps = async () => {
-  const name = process.env.SRI;
+  const api = process.env.SRI;
   return {
     props: {
-      ame: "name",
+      ame: process.env.SRI,
     },
   }
 }
