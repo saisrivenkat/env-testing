@@ -3,6 +3,46 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home({ ame }) {
+  const d =new Date();
+  let nextphase;
+  let time;
+  const phases=[
+    "2022-01-02T00:00:00.000Z",
+    "2022-01-06T00:00:00.000Z",
+    "2022-01-07T12:00:00.000Z",
+  ]
+  for(let i=0;i<phases.length;i++){
+    const c = new Date(phases[i]);
+    var diff = c.getTime()-d.getTime();
+    var diffdays = diff/(1000*3600*24);
+    if(diffdays>0){
+      nextphase=i+1 ; 
+      let current_phase_ending = c.getTime()-d.getTime();
+      var seconds = current_phase_ending / 1000;
+      time = parseInt( seconds / 3600 );
+      break;
+     }
+
+  }
+  const calculate_time=(nextphase,todaydate)=>{
+    let hrs;
+    let current_phase_ending = nextphase-todaydate;
+    var seconds = current_phase_ending / 1000;
+    hrs = parseInt( seconds / 3600 );
+    return hrs;
+  }
+  if(nextphase){
+    console.log("next is phase "+nextphase)
+    console.log("current phase ends in "+time+" hrs")
+  }
+  else{
+    console.log("current phase is  "+phases.length)
+    const drs= new Date(phases[phases.length-1])
+    const final = calculate_time(d.getTime(),drs.getTime());
+    console.log("current phase ends in "+ final +" hrs")
+  }
+ 
+  
   return (
     <div className={styles.container}>
       <Head>
